@@ -3,9 +3,16 @@ import React from 'react'
 import './App.css'
 import SearchBooks from './SearchBooks';
 import ListBooks from './ListBooks';
+import { getAll } from './BooksAPI';
 
 class BooksApp extends React.Component {
   state = {
+    books: [],
+    shelves: [
+      {name: 'currentlyReading', title: 'Currently Reading'},
+      {name: 'wantToRead', title: 'Want to Read'},
+      {name: 'read', title: 'Read'},
+    ],
     /**
      * TODO: Instead of using this state variable to keep track of which page
      * we're on, use the URL in the browser's address bar. This will ensure that
@@ -16,13 +23,18 @@ class BooksApp extends React.Component {
 
   }
 
+  componentDidMount() {
+    getAll().then(data => this.setState(prevState => ({books: data})))
+  }
+
   render() {
+    const { books, shelves } = this.state;
     return (
       <div className="app">
         {this.state.showSearchPage ? (
           <SearchBooks />
         ) : (
-          <ListBooks />
+          <ListBooks books={books} shelves={shelves} />
         )}
       </div>
     )

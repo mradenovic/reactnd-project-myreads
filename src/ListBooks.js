@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Bookshelf from './Bookshelf';
 
 class ListBooks extends Component {
+
   render() {
+    const { books, shelves } = this.props;
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -10,8 +12,8 @@ class ListBooks extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            {[0, 1, 2].map(shelf => (
-              <Bookshelf key={shelf} />
+            {shelves.map(shelf => (
+              <Bookshelf books={books} shelf={shelf} key={shelf.name} />
             ))}
           </div>
         </div>
