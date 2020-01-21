@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { search } from './BooksAPI';
+import Book from './Book'
 
 class SearchBooks extends Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class SearchBooks extends Component {
 
   componentDidMount() {
     search('poetry').then(data => {
-      console.log(data)
       this.setState((prevState) => ({ books: data }));
     })
   }
@@ -40,7 +40,9 @@ class SearchBooks extends Component {
       <div className="search-books-results">
         <ol className="books-grid">
           {this.state.books.map(book => (
-            <li key={book.id}>{book.title} {book.shelf}</li>
+            <li key={book.id}>
+              <Book book={book} />
+            </li>
           ))}
         </ol>
       </div>
