@@ -31,15 +31,26 @@ class BooksApp extends React.Component {
     return book ? book.shelf : 'none'
   }
 
-  setBookshelf(book, bookshelf) {
+  setLocalBookshelf(book) {
     this.setState(prevState => {
-      const books = prevState.books.map( prevBook => (
-        prevBook.id === book.id
-          ? {...prevBook, shelf: bookshelf }
-          : prevBook
-      ))
+      let books = [ ...prevState.books ]
+      const index = books.findIndex(({ id }) => id === book.id )
+
+      index === -1
+        ? books.push(book)
+        : (books[index] = book)
+
       return { books: books }
     })
+  }
+  
+  setBookshelf(book, bookshelf) {
+    const nextBook = { ...book, shelf: bookshelf }
+
+    update(book, bookshelf).then(data => {
+      this.setLocalBookshelf(nextBook)
+    })
+
   }
 
   render() {
