@@ -16,6 +16,9 @@ class SearchBooks extends Component {
   handleQueryChange(e) {
     const value = e.target.value
     this.setState(() => ({ query: value }))
+
+    !value && this.setState(() => ({ books: [] }))
+    
     value && search(value).then(data => {
       !data || data.error
         ? this.setState(() => ({ books: [] }))
