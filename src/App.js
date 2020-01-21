@@ -1,16 +1,16 @@
 import React from 'react'
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
-import SearchBooks from './SearchBooks';
-import ListBooks from './ListBooks';
-import { getAll, update } from './BooksAPI';
+import SearchBooks from './SearchBooks'
+import ListBooks from './ListBooks'
+import { getAll, update } from './BooksAPI'
 
 class BooksApp extends React.Component {
   constructor(props) {
     super(props)
 
-    this.getBookshelf = this.getBookshelf.bind(this);
-    this.setBookshelf = this.setBookshelf.bind(this);
+    this.getBookshelf = this.getBookshelf.bind(this)
+    this.setBookshelf = this.setBookshelf.bind(this)
   }
 
   state = {
@@ -54,7 +54,7 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    const { books, shelves } = this.state;
+    const { books, shelves } = this.state
     return (
       <div className="app">
         <Switch>

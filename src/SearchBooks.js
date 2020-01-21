@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { search } from './BooksAPI';
+import { search } from './BooksAPI'
 import Book from './Book'
 
 class SearchBooks extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       books: [],
       query: ''
@@ -48,4 +48,4 @@ class SearchBooks extends Component {
   } 
 }
 
-export default SearchBooks;
+export default SearchBooks

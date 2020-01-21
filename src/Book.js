@@ -1,5 +1,5 @@
-import React from "react";
-import BookShelfChanger from './BookShelfChanger';
+import React from "react"
+import BookShelfChanger from './BookShelfChanger'
 
 function Book(props) {
   const { book , getBookshelf, setBookshelf } = props
@@ -20,7 +20,7 @@ function Book(props) {
       <div className="book-title">{book.title}</div>
       <div className="book-authors">{book.authors ? book.authors.toString() : 'N/A'}</div>
     </div>
-  );
+  )
 }
 
-export default Book;
+export default Book

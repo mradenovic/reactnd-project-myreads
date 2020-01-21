@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import Bookshelf from './Bookshelf';
+import React, { Component } from "react"
+import Bookshelf from './Bookshelf'
 import { Link } from 'react-router-dom'
 
 class ListBooks extends Component {
 
   render() {
-    const { books, shelves, getBookshelf, setBookshelf } = this.props;
+    const { books, shelves, getBookshelf, setBookshelf } = this.props
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -30,8 +30,8 @@ class ListBooks extends Component {
           </Link>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ListBooks;
+export default ListBooks

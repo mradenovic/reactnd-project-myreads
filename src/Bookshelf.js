@@ -1,11 +1,11 @@
-import React from "react";
-import Book from './Book';
+import React from "react"
+import Book from './Book'
 
 function Bookshelf(props) {
-  const { name, title } = props.shelf;
+  const { name, title } = props.shelf
   const { getBookshelf, setBookshelf } = props
 
-  const books = props.books.filter(book => book.shelf === name);
+  const books = props.books.filter(book => book.shelf === name)
 
   return (
     <div className="bookshelf">
@@ -24,7 +24,7 @@ function Bookshelf(props) {
         </ol>
       </div>
     </div>
-  );
+  )
 }
 
 export default Bookshelf

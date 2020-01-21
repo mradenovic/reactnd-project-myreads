@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 function BookShelfChanger(props) {
   const { getBookshelf, setBookshelf } = props
@@ -18,4 +18,4 @@ function BookShelfChanger(props) {
   )
 }
 
-export default BookShelfChanger;
+export default BookShelfChanger
