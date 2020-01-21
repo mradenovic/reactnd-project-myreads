@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 class ListBooks extends Component {
 
   render() {
-    const { books, shelves } = this.props;
+    const { books, shelves, getBookshelf, setBookshelf } = this.props;
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -14,15 +14,19 @@ class ListBooks extends Component {
         <div className="list-books-content">
           <div>
             {shelves.map(shelf => (
-              <Bookshelf books={books} shelf={shelf} key={shelf.name} />
+              <Bookshelf
+                books={books}
+                shelf={shelf}
+                key={shelf.name}
+                getBookshelf={getBookshelf}
+                setBookshelf={setBookshelf}
+              />
             ))}
           </div>
         </div>
         <div className="open-search">
           <Link to="/search">
-            <button>
-              Add a book
-            </button>
+            <button>Add a book</button>
           </Link>
         </div>
       </div>
