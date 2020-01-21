@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { search } from './BooksAPI';
 
-class SearchPage extends Component {
+class SearchBooks extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,4 +47,4 @@ class SearchPage extends Component {
   } 
 }
 
-export default SearchPage;
+export default SearchBooks;

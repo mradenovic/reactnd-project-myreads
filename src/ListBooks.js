@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Bookshelf from './Bookshelf';
 
-class ShelvesPage extends Component {
+class ListBooks extends Component {
   render() {
     return (
       <div className="list-books">
@@ -26,4 +26,4 @@ class ShelvesPage extends Component {
   }
 }
 
-export default ShelvesPage;
+export default ListBooks;
