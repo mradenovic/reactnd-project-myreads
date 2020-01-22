@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import SearchBooks from './SearchBooks'
 import ListBooks from './ListBooks'
 import { getAll, update } from './BooksAPI'
@@ -65,6 +65,8 @@ class BooksApp extends React.Component {
           <Route path="/search">
             <SearchBooks getBookshelf={this.getBookshelf} setBookshelf={this.setBookshelf} />
           </Route>
+
+          <Redirect from="*" to="/"/>
         </Switch>
       </div>
     )
