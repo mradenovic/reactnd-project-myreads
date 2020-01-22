@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { search } from './BooksAPI'
 import Book from './Book'
+import debounce from 'debounce'
 
 class SearchBooks extends Component {
   constructor(props) {
@@ -17,14 +18,19 @@ class SearchBooks extends Component {
     const value = e.target.value
     this.setState(() => ({ query: value }))
 
+    this.search(value)
+  }
+
+  search = debounce(value => {
     !value && this.setState(() => ({ books: [] }))
     
     value && search(value).then(data => {
+      console.log('value', value)
       !data || data.error
         ? this.setState(() => ({ books: [] }))
         : this.setState(() => ({ books: data }))
     })
-  }
+  }, 500)
 
   render() {
     const { getBookshelf, setBookshelf } = this.props
